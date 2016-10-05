@@ -22,7 +22,6 @@ class GoPiggy(pigo.Pigo):
         #self.calibrate()
         # let's use an event-driven model, make a handler of sorts to listen for "events"
         while True:
-        while True:
             self.stop()
             self.handler()
 
