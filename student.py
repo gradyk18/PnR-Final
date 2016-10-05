@@ -12,7 +12,7 @@ improve the parent class and it won't overwrite your work.
 class GoPiggy(pigo.Pigo):
     # CUSTOM INSTANCE VARIABLES GO HERE. You get the empty self.scan array from Pigo
     # You may want to add a variable to store your default speed
-    MIDPOINT = 83
+    MIDPOINT = 91
     STOP_DIST = 20
 
     # CONSTRUCTOR
@@ -21,6 +21,7 @@ class GoPiggy(pigo.Pigo):
         # this method makes sure Piggy is looking forward
         #self.calibrate()
         # let's use an event-driven model, make a handler of sorts to listen for "events"
+        while True:
         while True:
             self.stop()
             self.handler()
@@ -46,7 +47,19 @@ class GoPiggy(pigo.Pigo):
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
-        self.encR(18)
+        for x in range(100, 200, 25):
+            print('Speed is set to:' + str(x))
+            set_speed(x)
+            servo(20)
+            self.encB(5)
+            self.encR(2)
+            self.encL(2)
+            self.encF(5)
+            servo(120)
+            time.sleep(.1)
+
+
+
 
     # AUTONOMOUS DRIVING
     def nav(self):
