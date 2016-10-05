@@ -65,7 +65,7 @@ class GoPiggy(pigo.Pigo):
             servo(100)
             self.encF(5)
             servo(120)
-            time.sleep(.1)
+            time.sleep(.5)
 
     def status(self):
         print("My power is at "+str(volt())+ " volts")
