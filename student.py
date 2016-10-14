@@ -88,7 +88,7 @@ class GoPiggy(pigo.Pigo):
             for x in range(5):
                 self.encF(3)
                 self.encB(3)
-            self.encB(5)
+            self.encL(5)
             servo(110)
             self.encR(20)
             self.encF(6)
