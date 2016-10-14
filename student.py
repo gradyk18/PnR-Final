@@ -52,7 +52,7 @@ class GoPiggy(pigo.Pigo):
             if not self.isClear():
                 print("Omgorsh, it's not safe!")
                 break
-            x = 100
+            x = 175
             #while self.isClear() and x <= 200:
             print('Speed is set to:' + str(x))
             set_speed(x)
@@ -93,7 +93,7 @@ class GoPiggy(pigo.Pigo):
             self.encF(5)
             servo(120)
             time.sleep(.5)
-            x += 50
+            x += 25
 
 
     def status(self):
