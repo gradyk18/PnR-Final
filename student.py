@@ -50,7 +50,7 @@ class GoPiggy(pigo.Pigo):
         print("Is it clear")
         for x in range(3):
             if not self.isClear():
-                print "Omgorsh, it's not safe!"
+                print("Omgorsh, it's not safe!")
                 break
             x = 100
             #while self.isClear() and x <= 200:
