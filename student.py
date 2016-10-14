@@ -76,13 +76,16 @@ class GoPiggy(pigo.Pigo):
             servo(60)
             self.encF(4)
             self.encL(2)
+            for x in range(10):
+                self.encF(3)
+                self.encL(3)
             self.encB(6)
             self.encR(7)
             self.encL(30)
             self.encB(5)
             servo (90)
             self.encR(5)
-            for x in range(10):
+            for x in range(5):
                 self.encF(3)
                 self.encB(3)
             self.encB(5)
