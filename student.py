@@ -59,7 +59,7 @@ class GoPiggy(pigo.Pigo):
             servo(20)
             self.encB(5)
             self.encL(3)
-            self.encR(40)
+            self.encR(4)
             self.encL(11)
             servo(90)
             self.encB(3)
@@ -108,6 +108,13 @@ class GoPiggy(pigo.Pigo):
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
+        #TODO: If while loop fails, check for other paths
+
+        ##Loop: check that it's clear -- this is MVP
+        while self.isClear():
+            #let's go forward just a little bit
+            self.encF(10)
+
 
 
 ####################################################
