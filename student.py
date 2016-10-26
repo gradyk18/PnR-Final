@@ -118,9 +118,9 @@ class GoPiggy(pigo.Pigo):
             #isClear MVP
             answer = self.choosePath()
             if answer == "left":
-                self.encL(4)
+                self.encL(2)
             elif answer == "right":
-                self.encR(4)
+                self.encR(2)
 
 
 
