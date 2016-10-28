@@ -33,6 +33,7 @@ class GoPiggy(pigo.Pigo):
                 "2": ("Rotate", self.rotate),
                 "3": ("Dance", self.dance),
                 "4": ("Calibrate servo", self.calibrate),
+                "5": ("test_drive", self.testDrive),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
                 }
