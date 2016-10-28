@@ -114,7 +114,7 @@ class GoPiggy(pigo.Pigo):
         ##Loop: check that it's clear -- this is MVP
             while self.isClear():
             #let's go forward just a little bit
-                self.encF(7)
+                self.encF(5)
             ##Choose path method
             #isClear MVP
             answer = self.choosePath()
