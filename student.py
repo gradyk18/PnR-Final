@@ -123,8 +123,17 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 self.encR(3)
 
-
-
+    #Test Drive Method
+    def testDrive(self):
+        print("Here we go!")
+        fwd()
+        while True:
+            if us_dist(15) < self.STOP_DIST:
+                print("AHHHHHH! ALL STOP!)
+                break
+            time.sleep(.05)
+            print("Seems clear, keep rolling")
+        self.stop()
 
 
 
