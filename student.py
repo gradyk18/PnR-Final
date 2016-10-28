@@ -115,7 +115,7 @@ class GoPiggy(pigo.Pigo):
         ##Loop: check that it's clear -- this is MVP
             while self.isClear():
             #let's go forward just a little bit
-                self.encF(5)
+                self.testDrive()
             ##Choose path method
             #isClear MVP
             answer = self.choosePath()
@@ -124,7 +124,7 @@ class GoPiggy(pigo.Pigo):
             elif answer == "right":
                 self.encR(3)
 
-    #Test Drive Method
+    # Test Drive Method
     def testDrive(self):
         print("Here we go!")
         fwd()
@@ -135,6 +135,8 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.05)
             print("Seems clear, keep rolling")
         self.stop()
+
+
 
 
 
