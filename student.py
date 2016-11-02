@@ -14,6 +14,8 @@ class GoPiggy(pigo.Pigo):
     # You may want to add a variable to store your default speed
     MIDPOINT = 91
     STOP_DIST = 30
+    RIGHT_SPEED = 200
+    LEFT_SPEED = 200
 
     # CONSTRUCTOR
     def __init__(self):
@@ -21,6 +23,7 @@ class GoPiggy(pigo.Pigo):
         # this method makes sure Piggy is looking forward
         #self.calibrate()
         # let's use an event-driven model, make a handler of sorts to listen for "events"
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
         while True:
             self.stop()
             self.handler()
@@ -115,6 +118,7 @@ class GoPiggy(pigo.Pigo):
         ##Loop: check that it's clear -- this is MVP
             while self.isClear():
             #let's go forward just a little bit
+            #added test drive into nav
                 self.testDrive()
             ##Choose path method
             #isClear MVP
@@ -126,8 +130,12 @@ class GoPiggy(pigo.Pigo):
 
     # Test Drive Method
     def testDrive(self):
+        #add code so servo faces forward
+        servo(self.MIDPOINT)
+        time.sleep(.1)
         print("Here we go!")
         fwd()
+        #loop-- will continue until something gets in the way
         while True:
             if us_dist(15) < self.STOP_DIST:
                 print("Ahhhhhh! All stop")
