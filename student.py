@@ -16,6 +16,8 @@ class GoPiggy(pigo.Pigo):
     STOP_DIST = 30
     RIGHT_SPEED = 200
     LEFT_SPEED = 200
+    speed = 100
+    scan = [None] * 180
 
     # CONSTRUCTOR
     def __init__(self):
