@@ -14,7 +14,7 @@ class GoPiggy(pigo.Pigo):
     # You may want to add a variable to store your default speed
     MIDPOINT = 91
     STOP_DIST = 30
-    RIGHT_SPEED = 195
+    RIGHT_SPEED = 199
     LEFT_SPEED = 200
     speed = 100
     scan = [None] * 180
