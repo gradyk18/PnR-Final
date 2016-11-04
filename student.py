@@ -49,6 +49,13 @@ class GoPiggy(pigo.Pigo):
         ans = input("Your selection: ")
         menu.get(ans, [None, error])[1]()
 
+    #added setSpeed to my code
+    def setSpeed(self, left, right):
+        set_left_speed(left)
+        set_right_speed(right)
+        self.LEFT_SPEED = left
+        self.RIGHT_SPEED = right
+        print('Left speed set to: ' + str(left) + ' // Right set to: ' + str(right))
 
     # A SIMPLE DANCE ALGORITHM
     def dance(self):
