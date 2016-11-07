@@ -15,7 +15,7 @@ class GoPiggy(pigo.Pigo):
     MIDPOINT = 91
     STOP_DIST = 30
     RIGHT_SPEED = 169
-    LEFT_SPEED = 172
+    LEFT_SPEED = 173
     speed = 100
     scan = [None] * 180
 
