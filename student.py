@@ -14,8 +14,8 @@ class GoPiggy(pigo.Pigo):
     # You may want to add a variable to store your default speed
     MIDPOINT = 91
     STOP_DIST = 30
-    RIGHT_SPEED = 202
-    LEFT_SPEED = 205
+    RIGHT_SPEED = 172
+    LEFT_SPEED = 165
     speed = 100
     scan = [None] * 180
 
@@ -153,6 +153,7 @@ class GoPiggy(pigo.Pigo):
             print("Seems clear, keep rolling")
         self.stop()
 
+#calibrate robot
     def calibrate(self):
         print("Calibrating...")
         servo(self.MIDPOINT)
@@ -200,6 +201,7 @@ class GoPiggy(pigo.Pigo):
 
 def error():
     print('Error in input')
+
 
 
 def quit():
