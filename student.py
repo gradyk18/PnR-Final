@@ -190,6 +190,8 @@ class GoPiggy(pigo.Pigo):
                 else:
                     break
 
+#TODO: make sure the robot does not turn backward during the maze by using Mr. A's strategy
+#Add code from Mr. A's video
 
 
 
