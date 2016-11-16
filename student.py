@@ -129,8 +129,8 @@ class GoPiggy(pigo.Pigo):
         print("That means I turn for" + str(deg * self.TIME_PER_DEGREE) + "seconds")
 
         print("Let's change our motor speeds!")
-        set_left_speed(self.LEFT_SPEED * self.TURN_MODIFIER)
-        set_right_speed(self.RIGHT_SPEED * self.TURN_MODIFIER)
+        set_left_speed(int(self.LEFT_SPEED * self.TURN_MODIFIER))
+        set_right_speed(int(self.RIGHT_SPEED * self.TURN_MODIFIER))
 
         right_rot()
         time.sleep(deg * self.TIME_PER_DEGREE)
