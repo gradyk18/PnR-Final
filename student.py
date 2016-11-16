@@ -121,7 +121,7 @@ class GoPiggy(pigo.Pigo):
 
         # my new time method
 
-    def turnR(selfself, deg):
+    def turnR(self, deg):
         # TWO NEW DISTANCE VARIABLES ARE NEEDED:
         # 1) TIME_PER_DEGREE - the answer to today's email
         # 20 TURN_MODIFIER - the change to the speed you used
