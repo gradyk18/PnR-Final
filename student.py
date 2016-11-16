@@ -18,6 +18,8 @@ class GoPiggy(pigo.Pigo):
     LEFT_SPEED = 172
     speed = 100
     scan = [None] * 180
+    TIME_PER_DEGREE = 0.0058
+    TURN_MODIFIER = .75
 
     # CONSTRUCTOR
     def __init__(self):
@@ -117,6 +119,26 @@ class GoPiggy(pigo.Pigo):
     def status(self):
         print("My power is at "+str(volt())+ " volts")
 
+        # my new time method
+
+    def turnR(selfself, deg):
+        # TWO NEW DISTANCE VARIABLES ARE NEEDED:
+        # 1) TIME_PER_DEGREE - the answer to today's email
+        # 20 TURN_MODIFIER - the change to the speed you used
+        print("Let's turn" + str(deg) + "degrees right")
+        print("That means I turn for" + str(deg * self.TIME_PER_DEGREE) + "seconds")
+
+        print("Let's change our motor speeds!")
+        set_left_speed(self.LEFT_SPEED * self.TURN_MODIFIER)
+        set_right_speed(self.RIGHT_SPEED * self.TURN_MODIFIER)
+
+        right_rot()
+        time.sleep(deg * self.TIME_PER_DEGREE)
+        self.stop()
+
+        # Let's turn the speed back to normal
+        set_left_speed(self.LEFT_SPEED)
+        set_right_speed(self.RIGHT_SPEED)
 
     # AUTONOMOUS DRIVING
     def nav(self):
@@ -135,7 +157,12 @@ class GoPiggy(pigo.Pigo):
             if answer == "left":
                 self.encL(3)
             elif answer == "right":
-                self.encR(3)
+                self.turnR(90)
+
+
+
+
+
 
     # Test Drive Method
     def testDrive(self):
