@@ -18,6 +18,8 @@ class GoPiggy(pigo.Pigo):
     LEFT_SPEED = 172
     speed = 100
     scan = [None] * 180
+
+    turn_track = 0.0
     TIME_PER_DEGREE = 0.0058
     TURN_MODIFIER = .75
 
@@ -119,26 +121,66 @@ class GoPiggy(pigo.Pigo):
     def status(self):
         print("My power is at "+str(volt())+ " volts")
 
-        # my new time method
+    # my new time method
 
-    def turnR(self, deg):
+    ##def turnR(self, deg):
         # TWO NEW DISTANCE VARIABLES ARE NEEDED:
         # 1) TIME_PER_DEGREE - the answer to today's email
         # 20 TURN_MODIFIER - the change to the speed you used
-        print("Let's turn" + str(deg) + "degrees right")
-        print("That means I turn for" + str(deg * self.TIME_PER_DEGREE) + "seconds")
+       # print("Let's turn" + str(deg) + "degrees right")
+       # print("That means I turn for" + str(deg * self.TIME_PER_DEGREE) + "seconds")
 
-        print("Let's change our motor speeds!")
-        set_left_speed(int(self.LEFT_SPEED * self.TURN_MODIFIER))
-        set_right_speed(int(self.RIGHT_SPEED * self.TURN_MODIFIER))
+        #print("Let's change our motor speeds!")
+       # set_left_speed(int(self.LEFT_SPEED * self.TURN_MODIFIER))
+       # set_right_speed(int(self.RIGHT_SPEED * self.TURN_MODIFIER))
 
-        right_rot()
-        time.sleep(deg * self.TIME_PER_DEGREE)
-        self.stop()
+       # right_rot()
+        #time.sleep(deg * self.TIME_PER_DEGREE)
+       # self.stop()
 
         # Let's turn the speed back to normal
-        set_left_speed(self.LEFT_SPEED)
-        set_right_speed(self.RIGHT_SPEED)
+       # set_left_speed(self.LEFT_SPEED)
+        #set_right_speed(self.RIGHT_SPEED)
+
+    ############################
+    ##MY NEW TURN METHODS because encR and encL just don't cut it
+    ############################
+    #takes number of degrees and turns right accordingly
+    def turnR(self, deg):
+        #blah
+        self.turn_track += deg
+        print("The exit is" + str(self.turn_track) + "degrees away.")
+        self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
+                      self.RIGHT_SPEED * self.TURN_MODIFIER)
+        right_rot()
+        time.sleep(deg * self.TIME_PER_DEGREE)
+        self.stop())
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
+
+
+    def turnL(self, deg):
+        #adjust the tracker so we know how many degrees away our exit is
+        self.turn_track -= deg
+        print("The exit is" + str(self.turn_track) + "degrees away.")
+        self.setSpeed(self.LEFT_SPEED * self.TURN_MODIFIER,
+                      self.RIGHT_SPEED * self.TURN_MODIFIER)
+        #do turn stuff
+        left_rot()
+        #use our experiment to calculate the time needed to turn
+        time.sleep(deg * self.TIME_PER_DEGREE)
+        self.stop()
+        #return speed to normal
+        self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
+
+
+
+    def setSpeed(self, left, right):
+        print("Left speed:" + str(left))
+        print("Right speed:" + str(right))
+        set_left_speed(left)
+        set_right_speed(right)
+        time.sleep(.05)
+
 
     # AUTONOMOUS DRIVING
     def nav(self):
@@ -153,11 +195,12 @@ class GoPiggy(pigo.Pigo):
                 self.testDrive()
             ##Choose path method
             #isClear MVP
+            #now using turnL and turnR instead of enc
             answer = self.choosePath()
             if answer == "left":
-                self.encL(3)
+                self.turnL(45)
             elif answer == "right":
-                self.turnR(90)
+                self.turnR(45)
 
 
 
