@@ -154,7 +154,7 @@ class GoPiggy(pigo.Pigo):
                       self.RIGHT_SPEED * self.TURN_MODIFIER)
         right_rot()
         time.sleep(deg * self.TIME_PER_DEGREE)
-        self.stop())
+        self.stop()
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
 
 
