@@ -182,23 +182,29 @@ class GoPiggy(pigo.Pigo):
         time.sleep(.05)
 
 
-    # AUTONOMOUS DRIVING
+    # AUTONOMOUS DRIVING - central logic loop of my navigation
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
         #TODO: If while loop fails, check for other paths
+        #main app loop
         while True:
         ##Loop: check that it's clear -- this is MVP
             while self.isClear():
+            #TODO: replace choosePath with a method that's smarter
             #let's go forward just a little bit
             #added test drive into nav
+            #TODO: Insert a method that backs away from the wall if it is too close
+            #TODO: self.backUpCheck()
                 self.testDrive()
             ##Choose path method
             #isClear MVP
             #now using turnL and turnR instead of enc
             answer = self.choosePath()
+        #TODO: replace 45 with a variable representing a smarter option
             if answer == "left":
                 self.turnL(45)
+        # TODO: replace 45 with a variable representing a smarter option
             elif answer == "right":
                 self.turnR(45)
 
@@ -223,7 +229,7 @@ class GoPiggy(pigo.Pigo):
             print("Seems clear, keep rolling")
         self.stop()
 
-#calibrate robot
+    #calibrate robot
     def calibrate(self):
         print("Calibrating...")
         servo(self.MIDPOINT)
