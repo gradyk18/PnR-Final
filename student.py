@@ -43,6 +43,7 @@ class GoPiggy(pigo.Pigo):
                 "3": ("Dance", self.dance),
                 "4": ("Calibrate servo", self.calibrate),
                 "5": ("test_drive", self.testDrive),
+                "6": ("test turn", self.testTurn),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit)
                 }
@@ -211,7 +212,14 @@ class GoPiggy(pigo.Pigo):
 
         # TODO: make sure the robot does not turn backward during the maze by using Mr. A's strategy
 
-
+    #Test Turn Method
+    def testTurn(self):
+        print('Lets see if our tracking is accurate')
+        self.turnR(50)
+        self.turnL(60)
+        input('Am I about 10 degrees away from my starting direction?')
+        self.turnL(80)
+        input('Am I 90 degrees from the start?')
 
 
     # Test Drive Method
