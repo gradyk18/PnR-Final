@@ -190,21 +190,21 @@ class GoPiggy(pigo.Pigo):
         #main app loop
         while True:
         ##Loop: check that it's clear -- this is MVP
-            self.isClear()
-            #TODO: replace choosePath with a method that's smarter
-            #let's go forward just a little bit
-            #added test drive into nav
-            #TODO: Insert a method that backs away from the wall if it is too close
-            #TODO: self.backUpCheck()
-            self.testDrive()
+            if self.isClear():
+                #TODO: replace choosePath with a method that's smarter
+                #let's go forward just a little bit
+                #added test drive into nav
+                #TODO: Insert a method that backs away from the wall if it is too close
+                #TODO: self.backUpCheck()
+                self.testDrive()
             ##Choose path method
             #isClear MVP
             #now using turnL and turnR instead of enc
             answer = self.choosePath()
-        #TODO: replace 45 with a variable representing a smarter option
+            #TODO: replace 45 with a variable representing a smarter option
             if answer == "left":
                 self.turnL(45)
-        # TODO: replace 45 with a variable representing a smarter option
+            # TODO: replace 45 with a variable representing a smarter option
             elif answer == "right":
                 self.turnR(45)
 
