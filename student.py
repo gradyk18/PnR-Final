@@ -190,7 +190,7 @@ class GoPiggy(pigo.Pigo):
         #main app loop
         while True:
         ##Loop: check that it's clear -- this is MVP
-            self.isClear():
+            self.isClear()
             #TODO: replace choosePath with a method that's smarter
             #let's go forward just a little bit
             #added test drive into nav
