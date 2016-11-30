@@ -54,12 +54,12 @@ class GoPiggy(pigo.Pigo):
         menu.get(ans, [None, error])[1]()
 
     #added setSpeed to my code
-    def setSpeed(self, left, right):
-        set_left_speed(left)
-        set_right_speed(right)
-        self.LEFT_SPEED = left
-        self.RIGHT_SPEED = right
-        print('Left speed set to: ' + str(left) + ' // Right set to: ' + str(right))
+    #def setSpeed(self, left, right):
+        #set_left_speed(left)
+        #set_right_speed(right)
+        #self.LEFT_SPEED = left
+        #self.RIGHT_SPEED = right
+        #print('Left speed set to: ' + str(left) + ' // Right set to: ' + str(right))
 
     # A SIMPLE DANCE ALGORITHM
     def dance(self):
@@ -190,13 +190,13 @@ class GoPiggy(pigo.Pigo):
         #main app loop
         while True:
         ##Loop: check that it's clear -- this is MVP
-            while self.isClear():
+            self.isClear():
             #TODO: replace choosePath with a method that's smarter
             #let's go forward just a little bit
             #added test drive into nav
             #TODO: Insert a method that backs away from the wall if it is too close
             #TODO: self.backUpCheck()
-                self.testDrive()
+            self.testDrive()
             ##Choose path method
             #isClear MVP
             #now using turnL and turnR instead of enc
@@ -209,6 +209,7 @@ class GoPiggy(pigo.Pigo):
                 self.turnR(45)
 
 
+        # TODO: make sure the robot does not turn backward during the maze by using Mr. A's strategy
 
 
 
@@ -266,7 +267,6 @@ class GoPiggy(pigo.Pigo):
                 else:
                     break
 
-#TODO: make sure the robot does not turn backward during the maze by using Mr. A's strategy
 #Add code from Mr. A's video
 
 
