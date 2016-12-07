@@ -54,13 +54,6 @@ class GoPiggy(pigo.Pigo):
         ans = input("Your selection: ")
         menu.get(ans, [None, error])[1]()
 
-    #added setSpeed to my code
-    #def setSpeed(self, left, right):
-        #set_left_speed(left)
-        #set_right_speed(right)
-        #self.LEFT_SPEED = left
-        #self.RIGHT_SPEED = right
-        #print('Left speed set to: ' + str(left) + ' // Right set to: ' + str(right))
 
     # A SIMPLE DANCE ALGORITHM
     def dance(self):
@@ -122,26 +115,6 @@ class GoPiggy(pigo.Pigo):
     def status(self):
         print("My power is at "+str(volt())+ " volts")
 
-    # my new time method
-
-    ##def turnR(self, deg):
-        # TWO NEW DISTANCE VARIABLES ARE NEEDED:
-        # 1) TIME_PER_DEGREE - the answer to today's email
-        # 20 TURN_MODIFIER - the change to the speed you used
-       # print("Let's turn" + str(deg) + "degrees right")
-       # print("That means I turn for" + str(deg * self.TIME_PER_DEGREE) + "seconds")
-
-        #print("Let's change our motor speeds!")
-       # set_left_speed(int(self.LEFT_SPEED * self.TURN_MODIFIER))
-       # set_right_speed(int(self.RIGHT_SPEED * self.TURN_MODIFIER))
-
-       # right_rot()
-        #time.sleep(deg * self.TIME_PER_DEGREE)
-       # self.stop()
-
-        # Let's turn the speed back to normal
-       # set_left_speed(self.LEFT_SPEED)
-        #set_right_speed(self.RIGHT_SPEED)
 
     ############################
     ##MY NEW TURN METHODS because encR and encL just don't cut it
@@ -215,19 +188,10 @@ class GoPiggy(pigo.Pigo):
                 #remove the negative with abs()
                 self.turnL(abs(turn_target))
 
-            #self.turnR()
-            #TODO: replace 45 with a variable representing a smarter option
-            #if answer == "left":
-                #self.turnL(45)
-                #self.turnL(turn_target)
-            # TODO: replace 45 with a variable representing a smarter option
-            #elif answer == "right":
-                #self.turnR(45)
-                #self.turnR(turn_target)
 
 
 
-        # TODO: make sure the robot does not turn backward during the maze by using Mr. A's strategy
+
 
                 #################################
 
