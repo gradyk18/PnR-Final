@@ -13,13 +13,12 @@ class GoPiggy(pigo.Pigo):
     # CUSTOM INSTANCE VARIABLES GO HERE. You get the empty self.scan array from Pigo
     # You may want to add a variable to store your default speed
     MIDPOINT = 91
-    STOP_DIST = 30
+    STOP_DIST = 25
     RIGHT_SPEED = 169
     LEFT_SPEED = 172
-    speed = 100
     scan = [None] * 180
 
-    turn_track = 0.0
+    turn_track = 0
     TIME_PER_DEGREE = 0.0058
     TURN_MODIFIER = .75
 
@@ -175,7 +174,7 @@ class GoPiggy(pigo.Pigo):
             #isClear MVP
             #now using turnL and turnR instead of enc
             #answer = self.choosePath()
-                # TODO: Insert a method that backs away from the wall if it is too close
+            # TODO: Insert a method that backs away from the wall if it is too close
             #backup method
             self.backUp()
             #IF I HAD TO STOP, PICK A BETTER PATH
@@ -293,7 +292,7 @@ class GoPiggy(pigo.Pigo):
     def testDrive(self):
         #add code so servo faces forward
         servo(self.MIDPOINT)
-        time.sleep(.1)
+        time.sleep(.05)
         print("Here we go!")
         fwd()
         #loop-- will continue until something gets in the way
@@ -308,7 +307,7 @@ class GoPiggy(pigo.Pigo):
 
     #adding backup method
     def backUp(self):
-        if us_dist(15) < 10:
+        if us_dist(15) < 15:
             print("Too close. Backing up for half a second")
             bwd()
             time.sleep(.5)
