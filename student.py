@@ -169,17 +169,17 @@ class GoPiggy(pigo.Pigo):
                 print("lets go!!")
             ##Choose path method
             #isClear MVP
-            #now using turnL and turnR instead of enc
             #answer = self.choosePath()
 
-            #backup method
+            #this is where backup method is in my code
             self.backUp()
-            print("Backing up")
             #IF I HAD TO STOP, PICK A BETTER PATH
+            #new and improved method called kenny
             turn_target = self.kenny()
             #a positive turn is right
             if turn_target > 0:
                 self.turnR(turn_target)
+            #negative degrees means left
             #negative degrees means left
             else:
                 #remove the negative with abs()
@@ -257,6 +257,7 @@ class GoPiggy(pigo.Pigo):
 
     #added wideScan method which we are using in the kenny method
     # SEARCH 120 DEGREES COUNTING BY 2's
+    #this scans further to each side so the robot hopefully won't clip the side of a box
     def wideScan(self):
         # dump all values
         self.flushScan()
@@ -278,6 +279,7 @@ class GoPiggy(pigo.Pigo):
             time.sleep(.01)
 
     #Test Turn Method
+    #this method is for me to check and see that my robot is making accurate turns
     def testTurn(self):
         print('Lets see if our tracking is accurate')
         self.turnR(50)
@@ -305,7 +307,9 @@ class GoPiggy(pigo.Pigo):
 
 
     #adding backup method
+    #robot will back up a small amount if it gets too close to an object in its path
     def backUp(self):
+        #if stop distance is less than 15, then it will back up
         if us_dist(15) < 15:
             print("Too close. Backing up for half a second")
             bwd()
