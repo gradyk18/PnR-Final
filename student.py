@@ -159,24 +159,22 @@ class GoPiggy(pigo.Pigo):
     def nav(self):
         print("Piggy nav")
         ##### WRITE YOUR FINAL PROJECT HERE
-        #TODO: If while loop fails, check for other paths
         #main app loop
         while True:
         ##Loop: check that it's clear -- this is MVP
             if self.isClear():
-                #TODO: replace choosePath with a method that's smarter
                 #let's go forward just a little bit
                 #added test drive into nav
-
-                #TODO: self.backUpCheck()
                 self.testDrive()
+                print("lets go!!")
             ##Choose path method
             #isClear MVP
             #now using turnL and turnR instead of enc
             #answer = self.choosePath()
-            # TODO: Insert a method that backs away from the wall if it is too close
+
             #backup method
             self.backUp()
+            print("Backing up")
             #IF I HAD TO STOP, PICK A BETTER PATH
             turn_target = self.kenny()
             #a positive turn is right
@@ -219,6 +217,7 @@ class GoPiggy(pigo.Pigo):
                     count += 1
                 # if this reading isn't safe...
                 else:
+                    print("This path won't work")
                     # aww nuts, I have to reset the count, this path won't work
                     count = 0
                 # YOU DECIDE: Is 16 degrees the right size to consider as a safe window?
