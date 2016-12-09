@@ -163,6 +163,7 @@ class GoPiggy(pigo.Pigo):
         #main app loop
         while True:
         #ADD THIS LOOP
+        #this will make it so it doesn't keep scanning
         for x in range(3):
         ##Loop: check that it's clear -- this is MVP
             if self.isClear():
