@@ -164,7 +164,8 @@ class GoPiggy(pigo.Pigo):
         while True:
         #ADD THIS LOOP
         #this will make it so it doesn't keep scanning
-        for x in range(3):
+        #for x in range(3):
+        #not as good as other option
         ##Loop: check that it's clear -- this is MVP
             if self.isClear():
                 #let's go forward just a little bit
@@ -298,16 +299,26 @@ class GoPiggy(pigo.Pigo):
     def testDrive(self):
         #add code so servo faces forward
         servo(self.MIDPOINT)
+        #give the robot time to move
         time.sleep(.05)
         print("Here we go!")
         fwd()
+        #start in an infinite loop
         #loop-- will continue until something gets in the way
         while True:
+            #break the loop if the sensor reading is closer than our stop distance
             if us_dist(15) < self.STOP_DIST:
+                self.stop()
                 print("Ahhhhhh! All stop")
-                break
+                if us_dist(15) < self.STOP_DIST:
+                    break
+            else:
+                fwd()
+                continue
+                #you decide... how many seconds do you wait in between a check?
             time.sleep(.05)
             print("Seems clear, keep rolling")
+            #stop if the sensor loop broke
         self.stop()
 
 
