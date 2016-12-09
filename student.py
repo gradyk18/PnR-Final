@@ -37,6 +37,7 @@ class GoPiggy(pigo.Pigo):
     def handler(self):
         ## This is a DICTIONARY, it's a list with custom index values
         # You may change the menu if you'd like
+        #added things to the menu
         menu = {"1": ("Navigate forward", self.nav),
                 "2": ("Rotate", self.rotate),
                 "3": ("Dance", self.dance),
@@ -161,6 +162,8 @@ class GoPiggy(pigo.Pigo):
         ##### WRITE YOUR FINAL PROJECT HERE
         #main app loop
         while True:
+        #ADD THIS LOOP
+        for x in range(3):
         ##Loop: check that it's clear -- this is MVP
             if self.isClear():
                 #let's go forward just a little bit
@@ -197,7 +200,7 @@ class GoPiggy(pigo.Pigo):
     def kenny(self):
         # Activate our scanner!
         self.wideScan()
-        # count will keep track of contigeous positive readings
+        # count will keep track of continuous positive readings
         count = 0
         # list of all the open paths we detect
         option = [0]
@@ -269,6 +272,7 @@ class GoPiggy(pigo.Pigo):
             # double check the distance
             scan2 = us_dist(15)
             # if I found a different distance the second time....
+            #absolute value because number cannot be negative
             if abs(scan1 - scan2) > 2:
                 scan3 = us_dist(15)
                 time.sleep(.1)
