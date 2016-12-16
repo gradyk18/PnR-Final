@@ -12,6 +12,7 @@ improve the parent class and it won't overwrite your work.
 class GoPiggy(pigo.Pigo):
     # CUSTOM INSTANCE VARIABLES GO HERE. You get the empty self.scan array from Pigo
     # You may want to add a variable to store your default speed
+    # These are used throughout the code
     MIDPOINT = 91
     STOP_DIST = 20
     RIGHT_SPEED = 169
@@ -28,6 +29,7 @@ class GoPiggy(pigo.Pigo):
         # this method makes sure Piggy is looking forward
         #self.calibrate()
         # let's use an event-driven model, make a handler of sorts to listen for "events"
+        #left needs to be before right speed
         self.setSpeed(self.LEFT_SPEED, self.RIGHT_SPEED)
         while True:
             self.stop()
@@ -56,6 +58,7 @@ class GoPiggy(pigo.Pigo):
 
 
     # A SIMPLE DANCE ALGORITHM
+    #First project we did with the robot
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
@@ -117,7 +120,7 @@ class GoPiggy(pigo.Pigo):
 
 
     ############################
-    ##MY NEW TURN METHODS because encR and encL just don't cut it
+    ##MY NEW TURN METHODS because encR and encL just don't cut it ~ more advanced
     ############################
     #takes number of degrees and turns right accordingly
     def turnR(self, deg):
@@ -334,6 +337,8 @@ class GoPiggy(pigo.Pigo):
 
 
     #calibrate robot
+    #only use this code to calibrate robot, not within nav method
+    #this method checks that my robot is looking straight ahead and that it is driving straight
     def calibrate(self):
         print("Calibrating...")
         servo(self.MIDPOINT)
